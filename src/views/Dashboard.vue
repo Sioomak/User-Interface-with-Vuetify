@@ -1,14 +1,17 @@
 <template>
-  <div>
+  <v-container>
     <h1>Dashboard</h1>
+    <v-row>
+      <v-col v-for="sale in sales" :key="`${sale.title}`">
+        <SalesGraph :sale="sale" />
+      </v-col>
+    </v-row>
 
-    <SalesGraph v-for="sale in sales" :key="`${sale.title}`" :sale="sale" />
-
-    <StatisticCard
-      v-for="statistic in statistics"
-      :key="`${statistic.title}`"
-      :statistic="statistic"
-    />
+    <v-row>
+      <v-col v-for="statistic in statistics" :key="`${statistic.title}`">
+        <StatisticCard :statistic="statistic" />
+      </v-col>
+    </v-row>
 
     <EmployeesTable :employees="employees" @select-employee="setEmployee" />
 
@@ -21,7 +24,7 @@
         Close
       </v-btn>
     </v-snackbar>
-  </div>
+  </v-container>
 </template>
 
 <script>
