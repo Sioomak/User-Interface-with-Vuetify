@@ -32,5 +32,10 @@ export default new Router({
       name: "dashboard",
       component: () => import("./views/Dashboard.vue"),
     },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("./views/Signup.vue"),
+    },
   ],
 });
